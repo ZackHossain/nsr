@@ -26,7 +26,7 @@ def load_responses():
     scope = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
 
     # Load the credentials.json file
-    creds = Credentials.from_service_account_file("credentials.json", scopes=scope)
+    creds = Credentials.from_service_account_file("credential.json", scopes=scope)
     # Authorize gspread with the loaded credentials
     client = gspread.authorize(creds)
 

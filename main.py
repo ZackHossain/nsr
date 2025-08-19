@@ -152,13 +152,12 @@ def submit_vote(payload):
 #                              #
 ################################
 if __name__ == "__main__":
-    submit("")
-    # new_responses = load_responses()
-    # new_responses = validate(new_responses)
+    new_responses = load_responses()
+    new_responses = validate(new_responses)
     
-    # print("All new form responses:")
-    # for r in new_responses:
-    #     print(r)
+    print("All new form responses:")
+    for r in new_responses:
+        print(r)
 
 
 

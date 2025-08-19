@@ -4,14 +4,13 @@ import json
 import time
 import os
 import re
-import requests
 from google.oauth2.service_account import Credentials
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 
-RESPONSES_SHEET = "https://docs.google.com/spreadsheets/d/1HSMegzu1GZuFtxzBuady3-IUlJCNZ7A6tz7Q60tl8wQ/edit?resourcekey=&gid=1953834535#gid=1953834535"
+RESPONSES_SHEET = "https://docs.google.com/spreadsheets/d/1HSMegzu1GZuFtxzBuady3-IUlJCNZ7A6tz7Q60tl8wQ/edit?usp=sharing"
 TEST_SHEET = "https://docs.google.com/spreadsheets/d/1leXM8H6rX2aeyPzFUqSEWjTv4LTIDqbiBPrvoYD5OTY/edit?usp=sharing"
 STATE_FILE = "responses.json"
 VOTE_LINK = "https://www.bigpulse.com/p83591/register"

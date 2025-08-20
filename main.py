@@ -141,7 +141,7 @@ def submit_vote(payload):
         save_success(payload)
         driver.quit()
     except Exception as e:
-        logging.exception(f'ERROR: Exception on {payload['zid']}')
+        logging.exception(f"ERROR: Exception on {payload['zid']}")
         save_failed(payload)
 
 ################################
@@ -160,7 +160,7 @@ def save_failed(res):
     data.append(res)
     with open("failed.json", "w") as f:
         json.dump(data, f, indent=2)
-        logging.error(f'FAILED to log {res}')
+        logging.error(f"FAILED to log {res}")
 
 def save_success(res):
     data = []
@@ -173,7 +173,7 @@ def save_success(res):
     data.append(res)
     with open("succeeded.json", "w") as f:
         json.dump(data, f, indent=2)
-        logging.info(f'REGISTERED {res['zid']}')
+        logging.info(f"REGISTERED {res['zid']}")
 
 ################################
 #                              #

@@ -10,3 +10,5 @@ Traceback (most recent call last):
 AttributeError: 'WebElement' object has no attribute 'txt'. Did you mean: 'text'?
 2025-08-20 12:02:45,763 [ERROR] MainProcess - FAILED to log {'email': 'z5401334@ad.unsw.edu.au', 'zid': 'z5401334', 'first_name': 'z', 'last_name': 'z', 'campus': 'UNSW'}
 2025-08-20 12:03:08,424 [INFO] MainProcess - Submitting vote for z5401334 (z5401334@ad.unsw.edu.au)
+2025-08-20 12:15:14,460 [INFO] MainProcess - Submitting vote for z5401334 (z5401334@ad.unsw.edu.au)
+2025-08-20 12:15:29,474 [INFO] MainProcess - Submitting vote for z5401334 (z5401334@ad.unsw.edu.au)

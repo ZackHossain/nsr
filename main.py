@@ -5,6 +5,7 @@ import time
 import os
 import re
 import logging
+import tempfile
 from google.oauth2.service_account import Credentials
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -106,10 +107,16 @@ def submit_vote(payload):
         options = Options()
         options.add_argument("--headless")  # run in background
         options.add_argument("--disable-gpu")  # recommended for headless
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+
+        # Use a temporary directory for Chrome user data
+        tmp_user_data_dir = tempfile.mkdtemp()
+        options.add_argument(f"--user-data-dir={tmp_user_data_dir}")
         
         driver = webdriver.Chrome(service=DRIVER_SERVICE, options=options)
         driver.get("https://www.bigpulse.com/p83591/register")
-        time.sleep(5)
+        time.sleep(2)
         
         main = driver.find_element(By.TAG_NAME, "main")
         print(main.text)
@@ -130,7 +137,7 @@ def submit_vote(payload):
         submit_btn = driver.find_element(By.XPATH, '//input[@type="submit"]')
         submit_btn.click()
         
-        time.sleep(5)
+        time.sleep(2)
         
         continue_btn = driver.find_element(By.NAME, "act_confirm")
         continue_btn.click()

@@ -1,4 +1,5 @@
 # Import gspread (Google Sheets library) and authentication tools
+import shutil
 import gspread
 import json
 import time
@@ -109,6 +110,7 @@ def submit_vote(payload):
         options.add_argument("--disable-gpu")  # recommended for headless
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
+        options.binary_location = "/usr/bin/google-chrome"
 
         # Use a temporary directory for Chrome user data
         tmp_user_data_dir = tempfile.mkdtemp()
@@ -120,6 +122,8 @@ def submit_vote(payload):
         
         main = driver.find_element(By.TAG_NAME, "main")
         print(main.text)
+        driver.quit()
+        shutil.rmtree(tmp_user_data_dir)
         return
         
         email_field = driver.find_element(By.NAME, "email")
@@ -150,6 +154,7 @@ def submit_vote(payload):
         
         save_success(payload)
         driver.quit()
+        shutil.rmtree(tmp_user_data_dir)
     except Exception as e:
         logging.exception(f"ERROR: Exception on {payload['zid']}")
         save_failed(payload)

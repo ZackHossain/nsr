@@ -102,7 +102,6 @@ def submit(responses):
 def submit_vote(payload):
     logging.info(f"Submitting vote for {payload['zid']} ({payload['email']})")
     print(payload)
-    return
     try:
         options = Options()
         options.add_argument("--headless")  # run in background
@@ -111,6 +110,10 @@ def submit_vote(payload):
         driver = webdriver.Chrome(service=DRIVER_SERVICE, options=options)
         driver.get("https://www.bigpulse.com/p83591/register")
         time.sleep(5)
+        
+        main = driver.find_element(By.TAG_NAME, "main")
+        print(main.text)
+        return
         
         email_field = driver.find_element(By.NAME, "email")
         first_name_field = driver.find_element(By.NAME, "firstname")

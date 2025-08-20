@@ -12,3 +12,115 @@ AttributeError: 'WebElement' object has no attribute 'txt'. Did you mean: 'text'
 2025-08-20 12:03:08,424 [INFO] MainProcess - Submitting vote for z5401334 (z5401334@ad.unsw.edu.au)
 2025-08-20 12:15:14,460 [INFO] MainProcess - Submitting vote for z5401334 (z5401334@ad.unsw.edu.au)
 2025-08-20 12:15:29,474 [INFO] MainProcess - Submitting vote for z5401334 (z5401334@ad.unsw.edu.au)
+2025-08-20 12:19:24,892 [INFO] MainProcess - Submitting vote for z5401334 (z5401334@ad.unsw.edu.au)
+2025-08-20 12:19:25,018 [ERROR] MainProcess - ERROR: Exception on z5401334
+Traceback (most recent call last):
+  File "/Users/zack/Desktop/SA/code/nsr_vote/src/main.py", line 119, in submit_vote
+    driver = webdriver.Chrome(service=DRIVER_SERVICE, options=options)
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/chrome/webdriver.py", line 47, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        browser_name=DesiredCapabilities.CHROME["browserName"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        keep_alive=keep_alive,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/chromium/webdriver.py", line 69, in __init__
+    super().__init__(command_executor=executor, options=options)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/webdriver.py", line 263, in __init__
+    self.start_session(capabilities)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/webdriver.py", line 366, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/webdriver.py", line 458, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created
+from unknown error: no chrome binary at /usr/bin/google-chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+0   chromedriver                        0x0000000101311ef8 chromedriver + 5918456
+1   chromedriver                        0x000000010130948a chromedriver + 5883018
+2   chromedriver                        0x0000000100dd5e20 chromedriver + 429600
+3   chromedriver                        0x0000000100e0e01b chromedriver + 659483
+4   chromedriver                        0x0000000100e0ccf5 chromedriver + 654581
+5   chromedriver                        0x0000000100e5c307 chromedriver + 979719
+6   chromedriver                        0x0000000100e5b996 chromedriver + 977302
+7   chromedriver                        0x0000000100e4dce3 chromedriver + 920803
+8   chromedriver                        0x0000000100e1a29b chromedriver + 709275
+9   chromedriver                        0x0000000100e1af81 chromedriver + 712577
+10  chromedriver                        0x00000001012cec00 chromedriver + 5643264
+11  chromedriver                        0x00000001012d2ab4 chromedriver + 5659316
+12  chromedriver                        0x00000001012aa472 chromedriver + 5493874
+13  chromedriver                        0x00000001012d355f chromedriver + 5662047
+14  chromedriver                        0x0000000101299414 chromedriver + 5424148
+15  chromedriver                        0x00000001012f6778 chromedriver + 5805944
+16  chromedriver                        0x00000001012f6940 chromedriver + 5806400
+17  chromedriver                        0x0000000101309061 chromedriver + 5881953
+18  libsystem_pthread.dylib             0x00007ff812143253 _pthread_start + 99
+19  libsystem_pthread.dylib             0x00007ff81213ebef thread_start + 15
+
+2025-08-20 12:19:25,025 [ERROR] MainProcess - FAILED to log {'email': 'z5401334@ad.unsw.edu.au', 'zid': 'z5401334', 'first_name': 'z', 'last_name': 'z', 'campus': 'UNSW'}
+2025-08-20 12:19:25,025 [INFO] MainProcess - Submitting vote for z5401334 (z5401334@ad.unsw.edu.au)
+2025-08-20 12:19:25,124 [ERROR] MainProcess - ERROR: Exception on z5401334
+Traceback (most recent call last):
+  File "/Users/zack/Desktop/SA/code/nsr_vote/src/main.py", line 119, in submit_vote
+    driver = webdriver.Chrome(service=DRIVER_SERVICE, options=options)
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/chrome/webdriver.py", line 47, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        browser_name=DesiredCapabilities.CHROME["browserName"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        keep_alive=keep_alive,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/chromium/webdriver.py", line 69, in __init__
+    super().__init__(command_executor=executor, options=options)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/webdriver.py", line 263, in __init__
+    self.start_session(capabilities)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/webdriver.py", line 366, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/webdriver.py", line 458, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created
+from unknown error: no chrome binary at /usr/bin/google-chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+0   chromedriver                        0x0000000102d49ef8 chromedriver + 5918456
+1   chromedriver                        0x0000000102d4148a chromedriver + 5883018
+2   chromedriver                        0x000000010280de20 chromedriver + 429600
+3   chromedriver                        0x000000010284601b chromedriver + 659483
+4   chromedriver                        0x0000000102844cf5 chromedriver + 654581
+5   chromedriver                        0x0000000102894307 chromedriver + 979719
+6   chromedriver                        0x0000000102893996 chromedriver + 977302
+7   chromedriver                        0x0000000102885ce3 chromedriver + 920803
+8   chromedriver                        0x000000010285229b chromedriver + 709275
+9   chromedriver                        0x0000000102852f81 chromedriver + 712577
+10  chromedriver                        0x0000000102d06c00 chromedriver + 5643264
+11  chromedriver                        0x0000000102d0aab4 chromedriver + 5659316
+12  chromedriver                        0x0000000102ce2472 chromedriver + 5493874
+13  chromedriver                        0x0000000102d0b55f chromedriver + 5662047
+14  chromedriver                        0x0000000102cd1414 chromedriver + 5424148
+15  chromedriver                        0x0000000102d2e778 chromedriver + 5805944
+16  chromedriver                        0x0000000102d2e940 chromedriver + 5806400
+17  chromedriver                        0x0000000102d41061 chromedriver + 5881953
+18  libsystem_pthread.dylib             0x00007ff812143253 _pthread_start + 99
+19  libsystem_pthread.dylib             0x00007ff81213ebef thread_start + 15
+
+2025-08-20 12:19:25,126 [ERROR] MainProcess - FAILED to log {'email': 'z5401334@ad.unsw.edu.au', 'zid': 'z5401334', 'first_name': 'z', 'last_name': 'z', 'campus': 'UNSW'}
+2025-08-20 12:20:00,327 [INFO] MainProcess - Submitting vote for z5401334 (z5401334@ad.unsw.edu.au)
+2025-08-20 12:32:11,818 [INFO] MainProcess - Submitting vote for z5592255 (z5592255@ad.unsw.edu.au)
+2025-08-20 12:32:28,549 [ERROR] MainProcess - FAILED to log {'email': 'z5592255@ad.unsw.edu.au', 'zid': 'z5592255', 'first_name': 'Ciaran', 'last_name': 'Swords', 'campus': 'UNSW'}
+2025-08-20 12:32:28,550 [INFO] MainProcess - REGISTERED z5592255

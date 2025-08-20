@@ -52,7 +52,7 @@ def load_responses():
         key = json.dumps(r, sort_keys=True)
         if key not in seen:
             new_responses.append(r)
-            # seen.add(key)
+            seen.add(key)
 
     # Save updated seen set back to file
     with open(STATE_FILE, "w") as f:
@@ -120,8 +120,6 @@ def submit_vote(payload):
         driver.get("https://www.bigpulse.com/p83591/register")
         time.sleep(2)
         
-        main = driver.find_element(By.TAG_NAME, "main")
-        
         email_field = driver.find_element(By.NAME, "email")
         first_name_field = driver.find_element(By.NAME, "firstname")
         last_name_field = driver.find_element(By.NAME, "lastname")
@@ -137,11 +135,12 @@ def submit_vote(payload):
         submit_btn = driver.find_element(By.XPATH, '//input[@type="submit"]')
         submit_btn.click()
         
-        time.sleep(2)
+        time.sleep(5)
         
         continue_btn = driver.find_element(By.NAME, "act_confirm")
         continue_btn.click()
         
+        time.sleep(2)
         # validate it was successful
         main_element = driver.find_element(By.TAG_NAME, "main")
         worked_text = "Thank you for registering to vote in the Students for Palestine Referendum ballot."

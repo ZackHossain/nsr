@@ -110,7 +110,7 @@ def submit_vote(payload):
         options.add_argument("--disable-gpu")  # recommended for headless
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
-        # options.binary_location = "/usr/bin/google-chrome"
+        options.binary_location = "/usr/bin/google-chrome"
 
         # Use a temporary directory for Chrome user data
         tmp_user_data_dir = tempfile.mkdtemp()

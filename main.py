@@ -32,7 +32,7 @@ def load_responses():
     client = gspread.authorize(creds)
 
     # Open the spreadsheet linked to the Google Form
-    sheet = client.open_by_url(TEST_SHEET).sheet1
+    sheet = client.open_by_url(RESPONSES_SHEET).sheet1
 
     # Fetch all rows (as a list of dictionaries or values)
     responses = sheet.get_all_records()
@@ -101,6 +101,8 @@ def submit(responses):
 
 def submit_vote(payload):
     logging.info(f"Submitting vote for {payload['zid']} ({payload['email']})")
+    print(payload)
+    return
     try:
         options = Options()
         options.add_argument("--headless")  # run in background
@@ -191,19 +193,3 @@ if __name__ == "__main__":
     new_responses = load_responses()
     valid_responses = validate(new_responses)
     submit(valid_responses)
-
-
-
-''' Google Form Info
-1. Data
-    - Email
-    - First Name
-    - Last Name
-    - Campus
-    - zID
-2. Submitted Message
-    - YOU'LL RECEIVE AN EMAIL SOON (title, so it's clear this was not the vote)
-    - You can only vote once
-    - You will receive a voting link in your email
-    - contact 0430 460 872 if you do not receive your link within 5 minutes
-'''

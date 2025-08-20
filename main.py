@@ -4,6 +4,7 @@ import json
 import time
 import os
 import re
+import logging
 from google.oauth2.service_account import Credentials
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -31,7 +32,7 @@ def load_responses():
     client = gspread.authorize(creds)
 
     # Open the spreadsheet linked to the Google Form
-    sheet = client.open_by_url(RESPONSES_SHEET).sheet1
+    sheet = client.open_by_url(TEST_SHEET).sheet1
 
     # Fetch all rows (as a list of dictionaries or values)
     responses = sheet.get_all_records()
@@ -70,17 +71,16 @@ def validate(responses):
         zId = res['zID (z0000000)']
         
         if not re.fullmatch(r'[zZ]\d{7}', zId):
+            save_failed(res)
             continue
         
         # Check email matches student ID and domain
         expected_domain = "@ad.unsw.edu.au"
         if not (email.startswith(zId) and email.endswith(expected_domain)):
+            save_failed(res)
             continue
+        
         validated.append(res)
-    
-    ###! WE SHOULD COLLECT SUCCESS AND FAIL DATA
-    ###! SO WE CAN FOLLOW UP PEOPLE WHO SUBMITTED INVALID INFO
-    
     return validated
 
 ################################
@@ -89,74 +89,108 @@ def validate(responses):
 #                              #
 ################################
 def submit(responses):
-    # for res in responses:
-        # payload = {
-        #     'email': res['Email (MUST BE zID@ad.unsw.edu.au)'],
-        #     'zid': res['zID (z0000000)'],
-        #     'first_name': res['First Name'],
-        #     'last_name': res['Last Name'],
-        #     'campus': 'UNSW'
-        # }
-    payload = {
-        'email': 'z5488642@ad.unsw.edu.au',
-        'zid': 'z5488642',
-        'first_name': 'Seb',
-        'last_name': 'K',
-        'campus': 'UNSW'
-    }
-    submit_vote(payload)
+    for res in responses:
+        payload = {
+            'email': res['Email (MUST BE zID@ad.unsw.edu.au)'],
+            'zid': res['zID (z0000000)'],
+            'first_name': res['First Name'],
+            'last_name': res['Last Name'],
+            'campus': 'UNSW'
+        }
+        submit_vote(payload)
 
 def submit_vote(payload):
-    options = Options()
-    options.add_argument("--headless")  # run in background
-    options.add_argument("--disable-gpu")  # recommended for headless
+    logging.info(f"Submitting vote for {payload['zid']} ({payload['email']})")
+    try:
+        options = Options()
+        options.add_argument("--headless")  # run in background
+        options.add_argument("--disable-gpu")  # recommended for headless
+        
+        driver = webdriver.Chrome(service=DRIVER_SERVICE, options=options)
+        driver.get("https://www.bigpulse.com/p83591/register")
+        time.sleep(5)
+        
+        email_field = driver.find_element(By.NAME, "email")
+        first_name_field = driver.find_element(By.NAME, "firstname")
+        last_name_field = driver.find_element(By.NAME, "lastname")
+        campus_field = driver.find_element(By.NAME, "orgname")
+        zid_field = driver.find_element(By.NAME, "custom1")
+        
+        email_field.send_keys(payload['email'])
+        first_name_field.send_keys(payload['first_name'])
+        last_name_field.send_keys(payload['last_name'])
+        campus_field.send_keys(payload['campus'])
+        zid_field.send_keys(payload['zid'])
+        
+        submit_btn = driver.find_element(By.XPATH, '//input[@type="submit"]')
+        submit_btn.click()
+        
+        time.sleep(5)
+        
+        continue_btn = driver.find_element(By.NAME, "act_confirm")
+        continue_btn.click()
+        
+        # validate it was successful
+        main_element = driver.find_element(By.TAG_NAME, "main")
+        worked_text = "Thank you for registering to vote in the Students for Palestine Referendum ballot."
+        if worked_text not in main_element.text:
+            save_failed(payload)
+        
+        save_success(payload)
+        driver.quit()
+    except Exception as e:
+        logging.exception(f'ERROR: Exception on {payload['zid']}')
+        save_failed(payload)
+
+################################
+#                              #
+#          SAVE DATA           #
+#                              #
+################################
+def save_failed(res):
+    data = {}
+    if os.path.exists("failed.json"):
+        with open("failed.json", "r") as f:
+            data = json.load(f)
+    else:
+        data = []
     
-    driver = webdriver.Chrome(service=DRIVER_SERVICE, options=options)
-    driver.get("https://www.bigpulse.com/p83591/register")
-    time.sleep(5)
+    data.append(res)
+    with open("failed.json", "w") as f:
+        json.dump(data, f, indent=2)
+        logging.error(f'FAILED to log {res}')
+
+def save_success(res):
+    data = []
+    if os.path.exists("succeeded.json"):
+        with open("succeeded.json", "r") as f:
+            data = json.load(f)
+    else:
+        data = []
     
-    email_field = driver.find_element(By.NAME, "email")
-    first_name_field = driver.find_element(By.NAME, "firstname")
-    last_name_field = driver.find_element(By.NAME, "lastname")
-    campus_field = driver.find_element(By.NAME, "orgname")
-    zid_field = driver.find_element(By.NAME, "custom1")
-    
-    email_field.send_keys(payload['email'])
-    first_name_field.send_keys(payload['first_name'])
-    last_name_field.send_keys(payload['last_name'])
-    campus_field.send_keys(payload['campus'])
-    zid_field.send_keys(payload['zid'])
-    
-    submit_btn = driver.find_element(By.XPATH, '//input[@type="submit"]')
-    submit_btn.click()
-    
-    time.sleep(5)
-    
-    continue_btn = driver.find_element(By.NAME, "act_confirm")
-    continue_btn.click()
-    
-    # validate it was successful
-    main_element = driver.find_element(By.TAG_NAME, "main")
-    worked_text = "Thank you for registering to vote in the Students for Palestine Referendum ballot."
-    if worked_text not in main_element.text:
-        #! FAILED
-        pass
-    
-    driver.quit()
-    
+    data.append(res)
+    with open("succeeded.json", "w") as f:
+        json.dump(data, f, indent=2)
+        logging.info(f'REGISTERED {res['zid']}')
 
 ################################
 #                              #
 #             MAIN             #
 #                              #
 ################################
+logging.basicConfig(
+    level=logging.INFO,  # could also use DEBUG for more detail
+    format="%(asctime)s [%(levelname)s] %(processName)s - %(message)s",
+    handlers=[
+        logging.FileHandler("submission.log"),  # writes logs to file
+        logging.StreamHandler()                 # also prints to console
+    ]
+)
+
 if __name__ == "__main__":
     new_responses = load_responses()
-    new_responses = validate(new_responses)
-    
-    print("All new form responses:")
-    for r in new_responses:
-        print(r)
+    valid_responses = validate(new_responses)
+    submit(valid_responses)
 
 
 

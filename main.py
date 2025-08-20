@@ -121,8 +121,6 @@ def submit_vote(payload):
         time.sleep(2)
         
         main = driver.find_element(By.TAG_NAME, "main")
-        print(main.text)
-        return
         
         email_field = driver.find_element(By.NAME, "email")
         first_name_field = driver.find_element(By.NAME, "firstname")

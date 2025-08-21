@@ -5,5 +5,19 @@
     "first_name": "Ciaran",
     "last_name": "Swords",
     "campus": "UNSW"
+  },
+  {
+    "email": "z0000002@ad.unsw.edu.au",
+    "zid": "z0000002",
+    "first_name": "z",
+    "last_name": "z",
+    "campus": "UNSW"
+  },
+  {
+    "email": "z0000003@ad.unsw.edu.au",
+    "zid": "z0000003",
+    "first_name": "z",
+    "last_name": "z",
+    "campus": "UNSW"
   }
 ]

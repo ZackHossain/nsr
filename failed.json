@@ -47,5 +47,57 @@
     "first_name": "Ciaran",
     "last_name": "Swords",
     "campus": "UNSW"
-  }
+  },
+  {
+    "Timestamp": "8/20/2025 14:16:08",
+    "Email (MUST BE zID@ad.unsw.edu.au)": "Z5417651@ad.unused.edu.au",
+    "zID (z0000000)": "Z5417651",
+    "First Name": "Gaby",
+    "Last Name": "Whalland"
+  },
+  {
+    "Timestamp": "8/20/2025 14:38:31",
+    "Email (MUST BE zID@ad.unsw.edu.au)": "z5534174@ad.unsw.edu.au",
+    "zID (z0000000)": "z5534174 ",
+    "First Name": "Aaizah",
+    "Last Name": "Tahir"
+  },
+  {
+    "email": "z3419031@ad.unsw.edu.au",
+    "zid": "z3419031",
+    "first_name": "Hersha",
+    "last_name": "Kadkol",
+    "campus": "UNSW"
+  },
+  {
+    "email": "z5476417@ad.unsw.edu.au",
+    "zid": "z5476417",
+    "first_name": "Catherine",
+    "last_name": "Gilbert",
+    "campus": "UNSW"
+  },
+  {
+    "email": "z5688123@ad.unsw.edu.au",
+    "zid": "z5688123",
+    "first_name": "Anousha",
+    "last_name": "Ibrar",
+    "campus": "UNSW"
+  },
+  {
+    "email": "z5583289@ad.unsw.edu.au",
+    "zid": "z5583289",
+    "first_name": "Christian ",
+    "last_name": "Lozano",
+    "campus": "UNSW"
+  },
+  {
+    "email": "z5209261@ad.unsw.edu.au",
+    "zid": "z5209261",
+    "first_name": "Harrison ",
+    "last_name": "Jarman ",
+    "campus": "UNSW"
+  },
+  "z5488642",
+  "z5658859",
+  "z0000002"
 ]

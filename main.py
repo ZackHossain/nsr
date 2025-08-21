@@ -69,17 +69,17 @@ def validate(responses):
     validated = []
     
     for res in responses:
-        email = res['Email (MUST BE zID@ad.unsw.edu.au)']
-        zId = res['zID (z0000000)']
+        email = res['Email (MUST BE zID@ad.unsw.edu.au)'].lower()
+        zId = res['zID (z0000000)'].lower()
         
         if not re.fullmatch(r'[zZ]\d{7}', zId):
-            save_failed(res)
+            save_failed(zId, "Invalid zID")
             continue
         
         # Check email matches student ID and domain
         expected_domain = "@ad.unsw.edu.au"
         if not (email.startswith(zId) and email.endswith(expected_domain)):
-            save_failed(res)
+            save_failed(zId, "Invalid Email")
             continue
         
         validated.append(res)
@@ -91,10 +91,16 @@ def validate(responses):
 #                              #
 ################################
 def submit(responses):
+    # responses.append({
+    #     'Email (MUST BE zID@ad.unsw.edu.au)': "z0000003@ad.unsw.edu.au",
+    #     "zID (z0000000)": "z0000003",
+    #     "First Name": 'z',
+    #     "Last Name": 'z'
+    # })
     for res in responses:
         payload = {
-            'email': res['Email (MUST BE zID@ad.unsw.edu.au)'],
-            'zid': res['zID (z0000000)'],
+            'email': res['Email (MUST BE zID@ad.unsw.edu.au)'].lower(),
+            'zid': res['zID (z0000000)'].lower(),
             'first_name': res['First Name'],
             'last_name': res['Last Name'],
             'campus': 'UNSW'
@@ -103,7 +109,6 @@ def submit(responses):
 
 def submit_vote(payload):
     logging.info(f"Submitting vote for {payload['zid']} ({payload['email']})")
-    print(payload)
     try:
         options = Options()
         options.add_argument("--headless")  # run in background
@@ -135,31 +140,43 @@ def submit_vote(payload):
         submit_btn = driver.find_element(By.XPATH, '//input[@type="submit"]')
         submit_btn.click()
         
-        time.sleep(5)
+        time.sleep(2)
         
+        # Checks if we are on the page which says "you have already registered"
+        main_element = driver.find_element(By.TAG_NAME, "main")
+        already_exists_text = "That email address is already in use"
+        if already_exists_text in main_element.text:
+            logging.info(f"ALREADY REGISTERED: {payload['zid']} has already registered.")
+            driver.quit()
+            shutil.rmtree(tmp_user_data_dir)
+            return
+        
+        # If we aren't already registered, confirm the details
         continue_btn = driver.find_element(By.NAME, "act_confirm")
         continue_btn.click()
         
         time.sleep(2)
-        # validate it was successful
         main_element = driver.find_element(By.TAG_NAME, "main")
         worked_text = "Thank you for registering to vote in the Students for Palestine Referendum ballot."
-        if worked_text not in main_element.text:
-            save_failed(payload)
-        
-        save_success(payload)
+        if worked_text in main_element.text:
+            save_success(payload)
+        else:
+            save_failed(payload['zid'], "Failed to register")
+            
         driver.quit()
         shutil.rmtree(tmp_user_data_dir)
     except Exception as e:
         logging.exception(f"ERROR: Exception on {payload['zid']}")
-        save_failed(payload)
+        save_failed(payload['zid'], "Exception when registering")
+        driver.quit()
+        shutil.rmtree(tmp_user_data_dir)
 
 ################################
 #                              #
 #          SAVE DATA           #
 #                              #
 ################################
-def save_failed(res):
+def save_failed(zid, reason):
     data = {}
     if os.path.exists("failed.json"):
         with open("failed.json", "r") as f:
@@ -167,10 +184,10 @@ def save_failed(res):
     else:
         data = []
     
-    data.append(res)
+    data.append(zid)
     with open("failed.json", "w") as f:
         json.dump(data, f, indent=2)
-        logging.error(f"FAILED to log {res}")
+        logging.error(f"FAILED to log {zid}: {reason}")
 
 def save_success(res):
     data = []
@@ -183,6 +200,7 @@ def save_success(res):
     data.append(res)
     with open("succeeded.json", "w") as f:
         json.dump(data, f, indent=2)
+        print(json.dumps(res, indent=4))
         logging.info(f"REGISTERED {res['zid']}")
 
 ################################
@@ -191,7 +209,7 @@ def save_success(res):
 #                              #
 ################################
 logging.basicConfig(
-    level=logging.INFO,  # could also use DEBUG for more detail
+    level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(processName)s - %(message)s",
     handlers=[
         logging.FileHandler("submission.log"),  # writes logs to file

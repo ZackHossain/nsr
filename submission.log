@@ -124,3 +124,370 @@ Stacktrace:
 2025-08-20 12:32:11,818 [INFO] MainProcess - Submitting vote for z5592255 (z5592255@ad.unsw.edu.au)
 2025-08-20 12:32:28,549 [ERROR] MainProcess - FAILED to log {'email': 'z5592255@ad.unsw.edu.au', 'zid': 'z5592255', 'first_name': 'Ciaran', 'last_name': 'Swords', 'campus': 'UNSW'}
 2025-08-20 12:32:28,550 [INFO] MainProcess - REGISTERED z5592255
+2025-08-21 16:51:03,888 [ERROR] MainProcess - FAILED to log {'Timestamp': '8/20/2025 14:16:08', 'Email (MUST BE zID@ad.unsw.edu.au)': 'Z5417651@ad.unused.edu.au', 'zID (z0000000)': 'Z5417651', 'First Name': 'Gaby', 'Last Name': 'Whalland'}
+2025-08-21 16:51:03,890 [ERROR] MainProcess - FAILED to log {'Timestamp': '8/20/2025 14:38:31', 'Email (MUST BE zID@ad.unsw.edu.au)': 'z5534174@ad.unsw.edu.au', 'zID (z0000000)': 'z5534174 ', 'First Name': 'Aaizah', 'Last Name': 'Tahir'}
+2025-08-21 16:52:58,809 [INFO] MainProcess - Submitting vote for z3419031 (z3419031@ad.unsw.edu.au)
+2025-08-21 16:52:59,064 [ERROR] MainProcess - ERROR: Exception on z3419031
+Traceback (most recent call last):
+  File "/Users/zack/Desktop/SA/code/nsr_vote/src/main.py", line 118, in submit_vote
+    driver = webdriver.Chrome(service=DRIVER_SERVICE, options=options)
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/chrome/webdriver.py", line 47, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        browser_name=DesiredCapabilities.CHROME["browserName"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        keep_alive=keep_alive,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/chromium/webdriver.py", line 69, in __init__
+    super().__init__(command_executor=executor, options=options)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/webdriver.py", line 263, in __init__
+    self.start_session(capabilities)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/webdriver.py", line 366, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/webdriver.py", line 458, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created
+from unknown error: no chrome binary at /usr/local/bin/chrome/chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+0   chromedriver                        0x00000001052bbef8 chromedriver + 5918456
+1   chromedriver                        0x00000001052b348a chromedriver + 5883018
+2   chromedriver                        0x0000000104d7fe20 chromedriver + 429600
+3   chromedriver                        0x0000000104db801b chromedriver + 659483
+4   chromedriver                        0x0000000104db6cf5 chromedriver + 654581
+5   chromedriver                        0x0000000104e06307 chromedriver + 979719
+6   chromedriver                        0x0000000104e05996 chromedriver + 977302
+7   chromedriver                        0x0000000104df7ce3 chromedriver + 920803
+8   chromedriver                        0x0000000104dc429b chromedriver + 709275
+9   chromedriver                        0x0000000104dc4f81 chromedriver + 712577
+10  chromedriver                        0x0000000105278c00 chromedriver + 5643264
+11  chromedriver                        0x000000010527cab4 chromedriver + 5659316
+12  chromedriver                        0x0000000105254472 chromedriver + 5493874
+13  chromedriver                        0x000000010527d55f chromedriver + 5662047
+14  chromedriver                        0x0000000105243414 chromedriver + 5424148
+15  chromedriver                        0x00000001052a0778 chromedriver + 5805944
+16  chromedriver                        0x00000001052a0940 chromedriver + 5806400
+17  chromedriver                        0x00000001052b3061 chromedriver + 5881953
+18  libsystem_pthread.dylib             0x00007ff812143253 _pthread_start + 99
+19  libsystem_pthread.dylib             0x00007ff81213ebef thread_start + 15
+
+2025-08-21 16:52:59,069 [ERROR] MainProcess - FAILED to log {'email': 'z3419031@ad.unsw.edu.au', 'zid': 'z3419031', 'first_name': 'Hersha', 'last_name': 'Kadkol', 'campus': 'UNSW'}: Exception when registering
+2025-08-21 16:52:59,070 [INFO] MainProcess - Submitting vote for z5476417 (z5476417@ad.unsw.edu.au)
+2025-08-21 16:52:59,170 [ERROR] MainProcess - ERROR: Exception on z5476417
+Traceback (most recent call last):
+  File "/Users/zack/Desktop/SA/code/nsr_vote/src/main.py", line 118, in submit_vote
+    driver = webdriver.Chrome(service=DRIVER_SERVICE, options=options)
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/chrome/webdriver.py", line 47, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        browser_name=DesiredCapabilities.CHROME["browserName"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        keep_alive=keep_alive,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/chromium/webdriver.py", line 69, in __init__
+    super().__init__(command_executor=executor, options=options)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/webdriver.py", line 263, in __init__
+    self.start_session(capabilities)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/webdriver.py", line 366, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/webdriver.py", line 458, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created
+from unknown error: no chrome binary at /usr/local/bin/chrome/chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+0   chromedriver                        0x0000000102a5bef8 chromedriver + 5918456
+1   chromedriver                        0x0000000102a5348a chromedriver + 5883018
+2   chromedriver                        0x000000010251fe20 chromedriver + 429600
+3   chromedriver                        0x000000010255801b chromedriver + 659483
+4   chromedriver                        0x0000000102556cf5 chromedriver + 654581
+5   chromedriver                        0x00000001025a6307 chromedriver + 979719
+6   chromedriver                        0x00000001025a5996 chromedriver + 977302
+7   chromedriver                        0x0000000102597ce3 chromedriver + 920803
+8   chromedriver                        0x000000010256429b chromedriver + 709275
+9   chromedriver                        0x0000000102564f81 chromedriver + 712577
+10  chromedriver                        0x0000000102a18c00 chromedriver + 5643264
+11  chromedriver                        0x0000000102a1cab4 chromedriver + 5659316
+12  chromedriver                        0x00000001029f4472 chromedriver + 5493874
+13  chromedriver                        0x0000000102a1d55f chromedriver + 5662047
+14  chromedriver                        0x00000001029e3414 chromedriver + 5424148
+15  chromedriver                        0x0000000102a40778 chromedriver + 5805944
+16  chromedriver                        0x0000000102a40940 chromedriver + 5806400
+17  chromedriver                        0x0000000102a53061 chromedriver + 5881953
+18  libsystem_pthread.dylib             0x00007ff812143253 _pthread_start + 99
+19  libsystem_pthread.dylib             0x00007ff81213ebef thread_start + 15
+
+2025-08-21 16:52:59,172 [ERROR] MainProcess - FAILED to log {'email': 'z5476417@ad.unsw.edu.au', 'zid': 'z5476417', 'first_name': 'Catherine', 'last_name': 'Gilbert', 'campus': 'UNSW'}: Exception when registering
+2025-08-21 16:52:59,172 [INFO] MainProcess - Submitting vote for z5688123 (z5688123@ad.unsw.edu.au)
+2025-08-21 16:52:59,273 [ERROR] MainProcess - ERROR: Exception on z5688123
+Traceback (most recent call last):
+  File "/Users/zack/Desktop/SA/code/nsr_vote/src/main.py", line 118, in submit_vote
+    driver = webdriver.Chrome(service=DRIVER_SERVICE, options=options)
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/chrome/webdriver.py", line 47, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        browser_name=DesiredCapabilities.CHROME["browserName"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        keep_alive=keep_alive,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/chromium/webdriver.py", line 69, in __init__
+    super().__init__(command_executor=executor, options=options)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/webdriver.py", line 263, in __init__
+    self.start_session(capabilities)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/webdriver.py", line 366, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/webdriver.py", line 458, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created
+from unknown error: no chrome binary at /usr/local/bin/chrome/chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+0   chromedriver                        0x000000010283fef8 chromedriver + 5918456
+1   chromedriver                        0x000000010283748a chromedriver + 5883018
+2   chromedriver                        0x0000000102303e20 chromedriver + 429600
+3   chromedriver                        0x000000010233c01b chromedriver + 659483
+4   chromedriver                        0x000000010233acf5 chromedriver + 654581
+5   chromedriver                        0x000000010238a307 chromedriver + 979719
+6   chromedriver                        0x0000000102389996 chromedriver + 977302
+7   chromedriver                        0x000000010237bce3 chromedriver + 920803
+8   chromedriver                        0x000000010234829b chromedriver + 709275
+9   chromedriver                        0x0000000102348f81 chromedriver + 712577
+10  chromedriver                        0x00000001027fcc00 chromedriver + 5643264
+11  chromedriver                        0x0000000102800ab4 chromedriver + 5659316
+12  chromedriver                        0x00000001027d8472 chromedriver + 5493874
+13  chromedriver                        0x000000010280155f chromedriver + 5662047
+14  chromedriver                        0x00000001027c7414 chromedriver + 5424148
+15  chromedriver                        0x0000000102824778 chromedriver + 5805944
+16  chromedriver                        0x0000000102824940 chromedriver + 5806400
+17  chromedriver                        0x0000000102837061 chromedriver + 5881953
+18  libsystem_pthread.dylib             0x00007ff812143253 _pthread_start + 99
+19  libsystem_pthread.dylib             0x00007ff81213ebef thread_start + 15
+
+2025-08-21 16:52:59,275 [ERROR] MainProcess - FAILED to log {'email': 'z5688123@ad.unsw.edu.au', 'zid': 'z5688123', 'first_name': 'Anousha', 'last_name': 'Ibrar', 'campus': 'UNSW'}: Exception when registering
+2025-08-21 16:53:24,187 [INFO] MainProcess - Submitting vote for z5583289 (z5583289@ad.unsw.edu.au)
+2025-08-21 16:53:43,673 [ERROR] MainProcess - ERROR: Exception on z5583289
+Traceback (most recent call last):
+  File "/Users/zack/Desktop/SA/code/nsr_vote/src/main.py", line 139, in submit_vote
+    continue_btn = driver.find_element(By.NAME, "act_confirm")
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/webdriver.py", line 926, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/webdriver.py", line 458, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"[name="act_confirm"]"}
+  (Session info: chrome=139.0.7258.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Stacktrace:
+0   chromedriver                        0x0000000104e90ef8 chromedriver + 5918456
+1   chromedriver                        0x0000000104e8848a chromedriver + 5883018
+2   chromedriver                        0x0000000104954e20 chromedriver + 429600
+3   chromedriver                        0x00000001049a6ed4 chromedriver + 765652
+4   chromedriver                        0x00000001049a70f1 chromedriver + 766193
+5   chromedriver                        0x00000001049f6ce4 chromedriver + 1092836
+6   chromedriver                        0x00000001049ccf3d chromedriver + 921405
+7   chromedriver                        0x00000001049f4024 chromedriver + 1081380
+8   chromedriver                        0x00000001049ccce3 chromedriver + 920803
+9   chromedriver                        0x000000010499929b chromedriver + 709275
+10  chromedriver                        0x0000000104999f81 chromedriver + 712577
+11  chromedriver                        0x0000000104e4dc00 chromedriver + 5643264
+12  chromedriver                        0x0000000104e51ab4 chromedriver + 5659316
+13  chromedriver                        0x0000000104e29472 chromedriver + 5493874
+14  chromedriver                        0x0000000104e5255f chromedriver + 5662047
+15  chromedriver                        0x0000000104e18414 chromedriver + 5424148
+16  chromedriver                        0x0000000104e75778 chromedriver + 5805944
+17  chromedriver                        0x0000000104e75940 chromedriver + 5806400
+18  chromedriver                        0x0000000104e88061 chromedriver + 5881953
+19  libsystem_pthread.dylib             0x00007ff812143253 _pthread_start + 99
+20  libsystem_pthread.dylib             0x00007ff81213ebef thread_start + 15
+
+2025-08-21 16:53:43,680 [ERROR] MainProcess - FAILED to log {'email': 'z5583289@ad.unsw.edu.au', 'zid': 'z5583289', 'first_name': 'Christian ', 'last_name': 'Lozano', 'campus': 'UNSW'}: Exception when registering
+2025-08-21 16:53:43,681 [INFO] MainProcess - Submitting vote for z5209261 (z5209261@ad.unsw.edu.au)
+2025-08-21 16:54:01,882 [ERROR] MainProcess - ERROR: Exception on z5209261
+Traceback (most recent call last):
+  File "/Users/zack/Desktop/SA/code/nsr_vote/src/main.py", line 139, in submit_vote
+    continue_btn = driver.find_element(By.NAME, "act_confirm")
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/webdriver.py", line 926, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/webdriver.py", line 458, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"[name="act_confirm"]"}
+  (Session info: chrome=139.0.7258.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Stacktrace:
+0   chromedriver                        0x0000000104e90ef8 chromedriver + 5918456
+1   chromedriver                        0x0000000104e8848a chromedriver + 5883018
+2   chromedriver                        0x0000000104954e20 chromedriver + 429600
+3   chromedriver                        0x00000001049a6ed4 chromedriver + 765652
+4   chromedriver                        0x00000001049a70f1 chromedriver + 766193
+5   chromedriver                        0x00000001049f6ce4 chromedriver + 1092836
+6   chromedriver                        0x00000001049ccf3d chromedriver + 921405
+7   chromedriver                        0x00000001049f4024 chromedriver + 1081380
+8   chromedriver                        0x00000001049ccce3 chromedriver + 920803
+9   chromedriver                        0x000000010499929b chromedriver + 709275
+10  chromedriver                        0x0000000104999f81 chromedriver + 712577
+11  chromedriver                        0x0000000104e4dc00 chromedriver + 5643264
+12  chromedriver                        0x0000000104e51ab4 chromedriver + 5659316
+13  chromedriver                        0x0000000104e29472 chromedriver + 5493874
+14  chromedriver                        0x0000000104e5255f chromedriver + 5662047
+15  chromedriver                        0x0000000104e18414 chromedriver + 5424148
+16  chromedriver                        0x0000000104e75778 chromedriver + 5805944
+17  chromedriver                        0x0000000104e75940 chromedriver + 5806400
+18  chromedriver                        0x0000000104e88061 chromedriver + 5881953
+19  libsystem_pthread.dylib             0x00007ff812143253 _pthread_start + 99
+20  libsystem_pthread.dylib             0x00007ff81213ebef thread_start + 15
+
+2025-08-21 16:54:01,885 [ERROR] MainProcess - FAILED to log {'email': 'z5209261@ad.unsw.edu.au', 'zid': 'z5209261', 'first_name': 'Harrison ', 'last_name': 'Jarman ', 'campus': 'UNSW'}: Exception when registering
+2025-08-21 16:56:46,999 [INFO] MainProcess - Submitting vote for z5488642 (z5488642@ad.unsw.edu.au)
+2025-08-21 16:57:05,635 [ERROR] MainProcess - ERROR: Exception on z5488642
+Traceback (most recent call last):
+  File "/Users/zack/Desktop/SA/code/nsr_vote/src/main.py", line 139, in submit_vote
+    continue_btn = driver.find_element(By.NAME, "act_confirm")
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/webdriver.py", line 926, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/webdriver.py", line 458, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"[name="act_confirm"]"}
+  (Session info: chrome=139.0.7258.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Stacktrace:
+0   chromedriver                        0x0000000101461ef8 chromedriver + 5918456
+1   chromedriver                        0x000000010145948a chromedriver + 5883018
+2   chromedriver                        0x0000000100f25e20 chromedriver + 429600
+3   chromedriver                        0x0000000100f77ed4 chromedriver + 765652
+4   chromedriver                        0x0000000100f780f1 chromedriver + 766193
+5   chromedriver                        0x0000000100fc7ce4 chromedriver + 1092836
+6   chromedriver                        0x0000000100f9df3d chromedriver + 921405
+7   chromedriver                        0x0000000100fc5024 chromedriver + 1081380
+8   chromedriver                        0x0000000100f9dce3 chromedriver + 920803
+9   chromedriver                        0x0000000100f6a29b chromedriver + 709275
+10  chromedriver                        0x0000000100f6af81 chromedriver + 712577
+11  chromedriver                        0x000000010141ec00 chromedriver + 5643264
+12  chromedriver                        0x0000000101422ab4 chromedriver + 5659316
+13  chromedriver                        0x00000001013fa472 chromedriver + 5493874
+14  chromedriver                        0x000000010142355f chromedriver + 5662047
+15  chromedriver                        0x00000001013e9414 chromedriver + 5424148
+16  chromedriver                        0x0000000101446778 chromedriver + 5805944
+17  chromedriver                        0x0000000101446940 chromedriver + 5806400
+18  chromedriver                        0x0000000101459061 chromedriver + 5881953
+19  libsystem_pthread.dylib             0x00007ff812143253 _pthread_start + 99
+20  libsystem_pthread.dylib             0x00007ff81213ebef thread_start + 15
+
+2025-08-21 16:57:05,644 [ERROR] MainProcess - FAILED to log z5488642: Exception when registering
+2025-08-21 16:57:05,644 [INFO] MainProcess - Submitting vote for z5658859 (z5658859@ad.unsw.edu.au)
+2025-08-21 16:57:24,315 [ERROR] MainProcess - ERROR: Exception on z5658859
+Traceback (most recent call last):
+  File "/Users/zack/Desktop/SA/code/nsr_vote/src/main.py", line 139, in submit_vote
+    continue_btn = driver.find_element(By.NAME, "act_confirm")
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/webdriver.py", line 926, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/webdriver.py", line 458, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"[name="act_confirm"]"}
+  (Session info: chrome=139.0.7258.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Stacktrace:
+0   chromedriver                        0x0000000101461ef8 chromedriver + 5918456
+1   chromedriver                        0x000000010145948a chromedriver + 5883018
+2   chromedriver                        0x0000000100f25e20 chromedriver + 429600
+3   chromedriver                        0x0000000100f77ed4 chromedriver + 765652
+4   chromedriver                        0x0000000100f780f1 chromedriver + 766193
+5   chromedriver                        0x0000000100fc7ce4 chromedriver + 1092836
+6   chromedriver                        0x0000000100f9df3d chromedriver + 921405
+7   chromedriver                        0x0000000100fc5024 chromedriver + 1081380
+8   chromedriver                        0x0000000100f9dce3 chromedriver + 920803
+9   chromedriver                        0x0000000100f6a29b chromedriver + 709275
+10  chromedriver                        0x0000000100f6af81 chromedriver + 712577
+11  chromedriver                        0x000000010141ec00 chromedriver + 5643264
+12  chromedriver                        0x0000000101422ab4 chromedriver + 5659316
+13  chromedriver                        0x00000001013fa472 chromedriver + 5493874
+14  chromedriver                        0x000000010142355f chromedriver + 5662047
+15  chromedriver                        0x00000001013e9414 chromedriver + 5424148
+16  chromedriver                        0x0000000101446778 chromedriver + 5805944
+17  chromedriver                        0x0000000101446940 chromedriver + 5806400
+18  chromedriver                        0x0000000101459061 chromedriver + 5881953
+19  libsystem_pthread.dylib             0x00007ff812143253 _pthread_start + 99
+20  libsystem_pthread.dylib             0x00007ff81213ebef thread_start + 15
+
+2025-08-21 16:57:24,321 [ERROR] MainProcess - FAILED to log z5658859: Exception when registering
+2025-08-21 16:59:13,235 [INFO] MainProcess - Submitting vote for z0000002 (z0000002@ad.unsw.edu.au)
+2025-08-21 16:59:35,175 [INFO] MainProcess - REGISTERED z0000002
+2025-08-21 17:00:06,038 [INFO] MainProcess - Submitting vote for z0000002 (z0000002@ad.unsw.edu.au)
+2025-08-21 17:00:24,992 [ERROR] MainProcess - ERROR: Exception on z0000002
+Traceback (most recent call last):
+  File "/Users/zack/Desktop/SA/code/nsr_vote/src/main.py", line 145, in submit_vote
+    continue_btn = driver.find_element(By.NAME, "act_confirm")
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/webdriver.py", line 926, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/webdriver.py", line 458, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/zack/Desktop/SA/code/nsr_vote/lib/python3.13/site-packages/selenium/webdriver/remote/errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"[name="act_confirm"]"}
+  (Session info: chrome=139.0.7258.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Stacktrace:
+0   chromedriver                        0x0000000100ab6ef8 chromedriver + 5918456
+1   chromedriver                        0x0000000100aae48a chromedriver + 5883018
+2   chromedriver                        0x000000010057ae20 chromedriver + 429600
+3   chromedriver                        0x00000001005cced4 chromedriver + 765652
+4   chromedriver                        0x00000001005cd0f1 chromedriver + 766193
+5   chromedriver                        0x000000010061cce4 chromedriver + 1092836
+6   chromedriver                        0x00000001005f2f3d chromedriver + 921405
+7   chromedriver                        0x000000010061a024 chromedriver + 1081380
+8   chromedriver                        0x00000001005f2ce3 chromedriver + 920803
+9   chromedriver                        0x00000001005bf29b chromedriver + 709275
+10  chromedriver                        0x00000001005bff81 chromedriver + 712577
+11  chromedriver                        0x0000000100a73c00 chromedriver + 5643264
+12  chromedriver                        0x0000000100a77ab4 chromedriver + 5659316
+13  chromedriver                        0x0000000100a4f472 chromedriver + 5493874
+14  chromedriver                        0x0000000100a7855f chromedriver + 5662047
+15  chromedriver                        0x0000000100a3e414 chromedriver + 5424148
+16  chromedriver                        0x0000000100a9b778 chromedriver + 5805944
+17  chromedriver                        0x0000000100a9b940 chromedriver + 5806400
+18  chromedriver                        0x0000000100aae061 chromedriver + 5881953
+19  libsystem_pthread.dylib             0x00007ff812143253 _pthread_start + 99
+20  libsystem_pthread.dylib             0x00007ff81213ebef thread_start + 15
+
+2025-08-21 17:00:25,002 [ERROR] MainProcess - FAILED to log z0000002: Exception when registering
+2025-08-21 17:01:26,542 [INFO] MainProcess - Submitting vote for z0000002 (z0000002@ad.unsw.edu.au)
+2025-08-21 17:01:45,662 [INFO] MainProcess - ALREADY REGISTERED: z0000002 has already registered.
+2025-08-21 17:02:53,041 [INFO] MainProcess - Submitting vote for z5693043 (z5693043@ad.unsw.edu.au)
+2025-08-21 17:03:08,602 [INFO] MainProcess - ALREADY REGISTERED: z5693043 has already registered.
+2025-08-21 17:03:08,887 [INFO] MainProcess - Submitting vote for z0000003 (z0000003@ad.unsw.edu.au)
+2025-08-21 17:03:27,042 [INFO] MainProcess - REGISTERED z0000003

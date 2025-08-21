@@ -69,8 +69,8 @@ def validate(responses):
     validated = []
     
     for res in responses:
-        email = res['Email (MUST BE zID@ad.unsw.edu.au)'].lower()
-        zId = res['zID (z0000000)'].lower()
+        email = str(res['Email (MUST BE zID@ad.unsw.edu.au)']).lower()
+        zId = str(res['zID (z0000000)']).lower()
         
         if not re.fullmatch(r'[zZ]\d{7}', zId):
             save_failed(zId, "Invalid zID")
@@ -91,12 +91,6 @@ def validate(responses):
 #                              #
 ################################
 def submit(responses):
-    # responses.append({
-    #     'Email (MUST BE zID@ad.unsw.edu.au)': "z0000003@ad.unsw.edu.au",
-    #     "zID (z0000000)": "z0000003",
-    #     "First Name": 'z',
-    #     "Last Name": 'z'
-    # })
     for res in responses:
         payload = {
             'email': res['Email (MUST BE zID@ad.unsw.edu.au)'].lower(),
@@ -219,5 +213,12 @@ logging.basicConfig(
 
 if __name__ == "__main__":
     new_responses = load_responses()
+    
+    new_responses.append({
+        'Email (MUST BE zID@ad.unsw.edu.au)': "z0000003@ad.unsw.edu.au",
+        "zID (z0000000)": 5401334,
+        "First Name": 'z',
+        "Last Name": 'z'
+    })
     valid_responses = validate(new_responses)
     submit(valid_responses)

@@ -491,3 +491,6 @@ Stacktrace:
 2025-08-21 17:03:08,602 [INFO] MainProcess - ALREADY REGISTERED: z5693043 has already registered.
 2025-08-21 17:03:08,887 [INFO] MainProcess - Submitting vote for z0000003 (z0000003@ad.unsw.edu.au)
 2025-08-21 17:03:27,042 [INFO] MainProcess - REGISTERED z0000003
+2025-08-21 17:11:23,413 [ERROR] MainProcess - FAILED to log 0000003: Invalid zID
+2025-08-21 17:11:32,190 [ERROR] MainProcess - FAILED to log 0000003: Invalid zID
+2025-08-21 17:12:01,207 [ERROR] MainProcess - FAILED to log 5401334: Invalid zID
